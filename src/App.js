@@ -5,35 +5,33 @@ import Home from './pages/Home'
 import Colors from './pages/Colors'
 import Buttons from './pages/Buttons'
 import PageNotFound from './pages/PageNotFound'
+import { ThemeProvider } from 'styled-components'
 
 const theme = {
   colors: {
-    lightest: "white",
-    secondary: "red",
-    primary: "blue"
+    primary: "#5A67D8",
+    primaryDark: "#434190"
+  },
+  buttons: {
+    buttonTextColor: "#FFFFFF",
+    buttonBorderRadius: "5px",
   }
-};
-
-const myCustomTheme = {
-  colors: {
-    lightest: "hotpink",
-    secondary: "cyan",
-    primary: "yellow"
-  }
-};
+}
 class App extends Component {
   render() {
     return (
-      <Router>
-        <Layout>
-          <Switch>
-            <Route exact path="/" component={Home} />
-            <Route path="/colors" component={Colors} />
-            <Route path="/buttons" component={Buttons} />
-            <Route component={PageNotFound} />
-          </Switch>
-        </Layout>
-      </Router>
+      <ThemeProvider theme={theme}>
+        <Router>
+          <Layout>
+            <Switch>
+              <Route exact path="/" component={Home} />
+              <Route path="/colors" component={Colors} />
+              <Route path="/buttons" component={Buttons} />
+              <Route component={PageNotFound} />
+            </Switch>
+          </Layout>
+        </Router>
+      </ThemeProvider>
     );
   }
 }

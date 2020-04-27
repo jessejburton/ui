@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import NavLinks from '../components/ui/NavLinks'
+import Navigation from './Navigation'
 import { maxContentWidth } from '../components/theme/sizes.js'
 
 const Header = () => {
@@ -28,7 +28,7 @@ const Header = () => {
     <header style={{ height: "10rem" }}>
       <StyledContent>
         <h1>UI</h1>
-        <NavLinks links={links} />
+        <Navigation />
       </StyledContent>
     </header>
   )

@@ -2,7 +2,8 @@ import React, { useState } from 'react'
 import ColorCard from '../components/ui/ColorCard'
 import { colors, black, white } from '../components/theme/colors'
 import { MediumSpace, Heading } from '../styles/container.styles'
-import { LinkButton } from '../styles/button.styles'
+import { PageWrapper } from '../styles/page.styles'
+import LinkButton from '../components/ui/Buttons/LinkButton'
 import styled from 'styled-components'
 
 const Colors = () => {
@@ -10,11 +11,13 @@ const Colors = () => {
   const [rgb, setRgb] = useState(false);
 
   return (
-    <div>
-      <h1>Colors</h1>
+    <PageWrapper>
+      <Heading>
+        <h1>Colors</h1>
+      </Heading>
       <MediumSpace>
-        <LinkButton className={rgb ? '' : 'active'} onClick={() => setRgb(false)}>HEX</LinkButton>
-        <LinkButton className={rgb ? 'active' : ''} onClick={() => setRgb(true)}>RGBA</LinkButton>
+        <LinkButton active={!rgb} onClick={() => setRgb(false)}>HEX</LinkButton>
+        <LinkButton active={rgb} onClick={() => setRgb(true)}>RGBA</LinkButton>
       </MediumSpace>
       <MediumSpace>
         <Heading>
@@ -37,7 +40,7 @@ const Colors = () => {
           </StyledGrid>
         </MediumSpace>
       ))}
-    </div>
+    </PageWrapper>
   )
 }
 
