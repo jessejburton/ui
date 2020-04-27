@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import styled from 'styled-components'
 import { hexToRgb } from '../../utilities/colors'
 import { CopyToClipboard } from 'react-copy-to-clipboard';
-import { cardShadow, cardShadowHover } from '../theme/shadows';
+import { cardShadow, cardShadowHover } from '../themes/shadows';
 
 const ColorCard = (props) => {
 

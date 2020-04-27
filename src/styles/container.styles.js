@@ -8,6 +8,10 @@ const spacing = {
 
 export const Heading = styled.header`
   padding: ${spacing.medium} 0;
+
+  h1 {
+    color: ${props => props.theme.colors.primary};
+  }
 `
 
 export const SmallSpace = styled.div`

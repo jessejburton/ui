@@ -14,7 +14,7 @@ export const StyledButton = styled.button`
 
   /* Give some space for an icon */
   svg {
-    margin: 0 0.5rem;
+    margin-right: 1rem;
   }
 
   /* Give space if more than one button are in a row */
@@ -60,7 +60,7 @@ export const StyledLinkButton = styled.button`
 
   /* Give some space for an icon */
   svg {
-    margin: 0 0.5rem;
+    margin-right: 1rem;
   }
 
   &:hover,
@@ -86,7 +86,7 @@ export const StyledNavLink = styled(NavLink)`
 
   /* Give some space for an icon */
   svg {
-    margin: 0 0.5rem;
+    margin-right: 1rem;
   }
 
   &:hover,

@@ -13,7 +13,7 @@ const Button = ({ children, inverted, round, icon, onClick }) => {
     <StyledButton onClick={onClick} className={classes.length ? classes.join(" ") : ""}>
       {icon && <FontAwesomeIcon icon={icon} />}
       <span>{children}</span>
-    </StyledButton >
+    </StyledButton>
   )
 }
 

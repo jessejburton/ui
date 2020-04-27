@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import ColorCard from '../components/ui/ColorCard'
-import { colors, black, white } from '../components/theme/colors'
+import { colors, black, white } from '../components/themes/colors'
 import { MediumSpace, Heading } from '../styles/container.styles'
 import { PageWrapper } from '../styles/page.styles'
 import LinkButton from '../components/ui/Buttons/LinkButton'
