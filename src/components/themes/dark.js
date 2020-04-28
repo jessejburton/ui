@@ -1,12 +1,11 @@
 import { faInfoCircle, faExclamationCircle, faExclamationTriangle, faCheckCircle } from '@fortawesome/free-solid-svg-icons'
 
-export const defaultTheme = {
+export const darkTheme = {
   colors: {
-    primary: "#5A67D8",
+    primary: "#FFFFFF",
     primaryDark: "#4C51BF",
-    backgroundColor: "#FFFFFF",
-    fontColor: "#222222",
-    subtle: "#EDF2F7"
+    backgroundColor: "#5A67D8",
+    fontColor: "#FFFFFF"
   },
   sizes: {
     maxContentWidth: "1200px",
@@ -24,7 +23,7 @@ export const defaultTheme = {
     default: {
       color: "#2A4365",
       backgroundColor: "#BEE3F8",
-      borderColor: "#90CDF4",
+      borderColor: "##90CDF4",
       icon: faInfoCircle
     },
     success: {

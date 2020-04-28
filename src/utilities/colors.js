@@ -6,7 +6,7 @@ export const hexToRgba = (hex, opacity) => {
     b: parseInt(result[3], 16),
     a: opacity || 1
   } : null;
-  return result ? `rgba(${rgba.r},${rgba.g},${rgba.b},${rgba.a})` : hex
+  return result ? `${rgba.r},${rgba.g},${rgba.b},${rgba.a}` : hex
 }
 
 export const hexToRgb = (hex) => {
@@ -16,5 +16,5 @@ export const hexToRgb = (hex) => {
     g: parseInt(result[2], 16),
     b: parseInt(result[3], 16)
   } : null;
-  return result ? `rgba(${rgb.r},${rgb.g},${rgb.b})` : hex
+  return result ? `${rgb.r},${rgb.g},${rgb.b}` : hex
 }

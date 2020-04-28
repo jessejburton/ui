@@ -17,7 +17,7 @@ const Colors = () => {
       </Heading>
       <MediumSpace>
         <LinkButton active={!rgb} onClick={() => setRgb(false)}>HEX</LinkButton>
-        <LinkButton active={rgb} onClick={() => setRgb(true)}>RGBA</LinkButton>
+        <LinkButton active={rgb} onClick={() => setRgb(true)}>RGB</LinkButton>
       </MediumSpace>
       <MediumSpace>
         <Heading>
