@@ -1,5 +1,5 @@
 import React from 'react'
-import NavButton from '../components/ui/Buttons/NavButton'
+import NavButton from '../components/ui/NavButton/NavButton'
 
 const links = [
   {

@@ -1,5 +1,5 @@
 import React from 'react'
-import { StyledNavLink } from './button.styles'
+import { StyledNavLink } from './styles'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 const NavButton = ({ children, icon, to, ...rest }) => {

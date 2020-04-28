@@ -1,5 +1,5 @@
 import React from 'react'
-import { StyledLinkButton } from './button.styles'
+import { StyledLinkButton } from './styles'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 const LinkButton = ({ children, icon, onClick, active }) => {

@@ -1,5 +1,4 @@
 import styled from 'styled-components'
-import { NavLink } from 'react-router-dom'
 
 export const StyledButton = styled.button`
   border: none;
@@ -13,8 +12,9 @@ export const StyledButton = styled.button`
   outline: none;
 
   /* Give some space for an icon */
-  svg {
-    margin-right: 1rem;
+  span+svg,
+  svg+span {
+    margin-left: 1rem;
   }
 
   /* Give space if more than one button are in a row */
@@ -45,56 +45,5 @@ export const StyledButton = styled.button`
 
   &.round {
     border-radius: ${props => props.theme.buttons.buttonBorderRadius};
-  }
-`
-
-export const StyledLinkButton = styled.button`
-  border: none;
-  background: none;
-  transition: color 0.3s ease;
-  font-size: 1.6rem;
-  padding: 1rem 1.5rem;
-  cursor: pointer;
-  font-weight: 500;
-  outline: none;
-
-  /* Give some space for an icon */
-  svg {
-    margin-right: 1rem;
-  }
-
-  &:hover,
-  &.active {
-    color: ${props => props.theme.colors.primary};
-  }
-
-  &.active {
-    font-weight: 600;
-  }
-`
-
-export const StyledNavLink = styled(NavLink)`
-  border: none;
-  background: none;
-  transition: color 0.3s ease;
-  font-size: 2rem;
-  padding: 1rem 1.5rem;
-  cursor: pointer;
-  font-weight: 500;
-  outline: none;
-  text-decoration: none;
-
-  /* Give some space for an icon */
-  svg {
-    margin-right: 1rem;
-  }
-
-  &:hover,
-  &.active {
-    color: ${props => props.theme.colors.primary};
-  }
-
-  &.active {
-    font-weight: 600;
   }
 `

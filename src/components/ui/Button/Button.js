@@ -1,18 +1,23 @@
-import React from 'react'
-import { StyledButton } from './button.styles'
+import React, { useContext } from 'react'
+import { StyledButton } from './styles'
+import { ThemeContext } from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
-const Button = ({ children, inverted, round, icon, onClick }) => {
+const Button = ({ children, inverted, round, iconLeft, iconRight, onClick }) => {
+
+  /* Theme Context */
+  const themeContext = useContext(ThemeContext);
 
   /* Handle adding any necessary classes */
   let classes = []
   if (inverted) classes.push("inverted");
-  if (round) classes.push("round");
+  if (round | themeContext.buttons.defaultRound) classes.push("round");
 
   return (
     <StyledButton onClick={onClick} className={classes.length ? classes.join(" ") : ""}>
-      {icon && <FontAwesomeIcon icon={icon} />}
+      {iconLeft && <FontAwesomeIcon icon={iconLeft} />}
       <span>{children}</span>
+      {iconRight && <FontAwesomeIcon icon={iconRight} />}
     </StyledButton>
   )
 }
