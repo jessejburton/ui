@@ -2,6 +2,7 @@ import React, { useContext } from 'react'
 import { ThemeContext } from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import styled from 'styled-components'
+import { hexToRgba } from '../../../utilities/colors'
 
 const LinkButton = ({ children, iconLeft, iconRight, onClick, active, round }) => {
 
@@ -52,6 +53,10 @@ const StyledLinkButton = styled.button`
     background-color: ${props => props.theme.colors.subtle};
   }
 
+  &:focus {
+    box-shadow: 0 0 2px 2px rgba(${props => hexToRgba(props.theme.colors.focus, 0.4)});
+  }
+
   &.active {
     color: ${props => props.theme.colors.primary};
     font-weight: 600;
@@ -63,7 +68,8 @@ StyledLinkButton.defaultProps = {
   theme: {
     colors: {
       primary: "#5A67D8",
-      subtle: ""
+      subtle: "",
+      focus: "#90CDF4"
     },
     buttons: {
       buttonBorderRadius: "5px",

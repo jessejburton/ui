@@ -17,13 +17,20 @@ const links = [
   {
     href: "/messages",
     text: "Messages"
-  }
+  },
+  {
+    href: "/modals",
+    text: "Modals"
+  },
+  {
+    href: "/data",
+    text: "Data"
+  },
 ]
 
 const Navigation = () => {
   return (
     <nav>
-      <NavButton exact to="/">UI</NavButton>
       {links.map((link, index) => (
         <NavButton key={index} to={link.href}>{link.text}</NavButton>
       ))}

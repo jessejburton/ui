@@ -4,15 +4,18 @@ export const defaultTheme = {
   colors: {
     primary: "#5A67D8",
     primaryDark: "#4C51BF",
+    secondary: "#CBD5E0",
+    secondaryDark: "#4A5568",
     backgroundColor: "#FFFFFF",
     fontColor: "#222222",
-    subtle: "#EDF2F7"
+    focus: "#90CDF4"
   },
   sizes: {
     maxContentWidth: "1200px",
   },
   buttons: {
     buttonTextColor: "#FFFFFF",
+    buttonTextColorDark: "#1A202C",
     buttonBorderRadius: "5px",
     defaultRound: false
   },

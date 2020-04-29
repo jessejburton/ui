@@ -4,13 +4,14 @@ import { faInfoCircle, faTimesCircle } from '@fortawesome/free-solid-svg-icons'
 import { ThemeContext } from 'styled-components';
 import { AnimatePresence, motion } from 'framer-motion'
 import styled from 'styled-components'
+import { hexToRgba } from '../../../utilities/colors'
 
 const variants = {
   show: { height: "auto", opacity: 1 },
   exit: { height: 0, opacity: 0, marginTop: 0 }
 }
 
-const Message = ({ children, round, dismiss, type = "default", title, ...rest }) => {
+const Message = ({ children, toast, round, dismiss, type = "default", title, ...rest }) => {
 
   const [isOpen, setIsOpen] = useState(true);
 
@@ -25,11 +26,13 @@ const Message = ({ children, round, dismiss, type = "default", title, ...rest })
   let classes = []
   classes.push("message")
   classes.push(type)
+  if (toast) classes.push("toast")
   if (round || props.defaultRound) classes.push("round");
 
   /* Handle close */
   function handleClose() {
     setIsOpen(false);
+    // TODO Need to wait until animation has completed.
     if (dismiss instanceof Function) {
       dismiss();
     }
@@ -70,10 +73,7 @@ export default Message
 const StyledMessage = styled(motion.div)`
   position: relative;
   overflow: hidden;
-
-  &.message {
-    margin-top: 1rem;
-  }
+  margin-bottom: 1rem;
 
   .message-content {
     padding: 2rem;
@@ -107,10 +107,31 @@ const StyledMessage = styled(motion.div)`
     opacity: 1;
   }
 
+  &.toast {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100vw;
+    margin: 0;
+    z-index: 10000;
+    display: flex;
+    justify-content: center;
+
+    .message-close {
+      right: 5rem;
+    }
+  }
+
   /* From Theme */
   color: ${props => props.color};
   background-color: ${props => props.backgroundColor};
   border: 1px solid ${props => props.borderColor};
+
+  &.toast {
+    box-shadow:
+      0 0 10px 5px rgba(${props => hexToRgba(props.color, 0.1)}),
+      0 0 15px 0 rgba(${props => hexToRgba(props.color, 0.1)});
+  }
 
   .message-icon {
     color: ${props => props.borderColor};

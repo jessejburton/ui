@@ -1,10 +1,10 @@
 import React from 'react'
 import { PageWrapper } from '../styles/page.styles'
-import { Heading, MediumSpace } from '../styles/container.styles'
+import { Heading, SmallSpace, MediumSpace } from '../styles/container.styles'
 import { Button } from '../components/ui/Button'
 import { LinkButton } from '../components/ui/LinkButton'
 import { ButtonGroup } from '../components/ui/ButtonGroup'
-import Navigation from '../layout/Navigation'
+import { ConfirmButton } from '../components/ui/ConfirmButton'
 import { faCalendarCheck } from '@fortawesome/free-solid-svg-icons'
 
 const Buttons = () => {
@@ -36,6 +36,22 @@ const Buttons = () => {
 
       <MediumSpace>
         <Heading>
+          <h2>Sizes</h2>
+        </Heading>
+        <SmallSpace>
+          <Button small onClick={() => alert("hello")}>Small</Button>
+          <Button iconLeft={faCalendarCheck}>Regular</Button>
+          <Button large>Large</Button>
+        </SmallSpace>
+        <SmallSpace>
+          <Button small round inverted iconRight={faCalendarCheck}>Small</Button>
+          <Button round inverted>Regular</Button>
+          <Button large round inverted>Large</Button>
+        </SmallSpace>
+      </MediumSpace>
+
+      <MediumSpace>
+        <Heading>
           <h2>Button Group</h2>
         </Heading>
         <ButtonGroup>
@@ -60,6 +76,22 @@ const Buttons = () => {
 
       <MediumSpace>
         <Heading>
+          <h2>Confirm Button</h2>
+        </Heading>
+        <ConfirmButton onConfirm={() => alert('You said yes!')}>Click Me</ConfirmButton>
+        <ConfirmButton small inverted onConfirm={() => alert('You said yes!')}>Click Me</ConfirmButton>
+      </MediumSpace>
+
+      <MediumSpace>
+        <Heading>
+          <h2>Confirm Button Round</h2>
+        </Heading>
+        <ConfirmButton round onConfirm={() => alert('You said yes!')}>Click Me</ConfirmButton>
+        <ConfirmButton large round inverted onConfirm={() => alert('You said yes!')}>Click Me</ConfirmButton>
+      </MediumSpace>
+
+      <MediumSpace>
+        <Heading>
           <h2>Link Buttons</h2>
         </Heading>
         <LinkButton>Link</LinkButton>
@@ -77,7 +109,7 @@ const Buttons = () => {
         <LinkButton round active>Active</LinkButton>
         <LinkButton round active iconRight={faCalendarCheck}>Active With Icon</LinkButton>
       </MediumSpace>
-    </PageWrapper>
+    </PageWrapper >
   )
 }
 
