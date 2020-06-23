@@ -1,17 +1,25 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useState, useEffect } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faInfoCircle, faTimesCircle } from '@fortawesome/free-solid-svg-icons'
 import { ThemeContext } from 'styled-components';
 import { AnimatePresence, motion } from 'framer-motion'
 import styled from 'styled-components'
-import { hexToRgba } from '../../../utilities/colors'
 
 const variants = {
   show: { height: "auto", opacity: 1 },
   exit: { height: 0, opacity: 0, marginTop: 0 }
 }
 
-const Message = ({ children, toast, round, dismiss, type = "default", title, ...rest }) => {
+const Message = ({
+  children,
+  toast,
+  round,
+  dismiss,
+  autoDismiss = 4000,
+  type = "default",
+  title,
+  ...rest
+}) => {
 
   const [isOpen, setIsOpen] = useState(true);
 
@@ -32,14 +40,16 @@ const Message = ({ children, toast, round, dismiss, type = "default", title, ...
   /* Handle close */
   function handleClose() {
     setIsOpen(false);
-    // TODO Need to wait until animation has completed.
-    if (dismiss instanceof Function) {
-      dismiss();
-    }
   }
 
+  useEffect(() => {
+    if (isOpen && autoDismiss) {
+      setTimeout(handleClose, autoDismiss)
+    }
+  }, [isOpen])
+
   return (
-    <AnimatePresence>
+    <AnimatePresence onExitComplete={dismiss}>
       {isOpen &&
         <StyledMessage
           variants={variants}
@@ -48,7 +58,8 @@ const Message = ({ children, toast, round, dismiss, type = "default", title, ...
           exit="exit"
           className={classes.length ? classes.join(" ") : ""}
           type={type}
-          {...props}>
+          {...props}
+          {...rest}>
           <div className="message-content">
             {dismiss &&
               <button className="message-close" onClick={handleClose}>
@@ -58,7 +69,7 @@ const Message = ({ children, toast, round, dismiss, type = "default", title, ...
             <div className="message-icon"><FontAwesomeIcon icon={icon} /></div>
             <div className="message-text">
               {title && <h5>{title}</h5>}
-              <p>{children}</p>
+              <div dangerouslySetInnerHTML={{ __html: children }} />
             </div>
           </div>
         </StyledMessage>
@@ -113,9 +124,11 @@ const StyledMessage = styled(motion.div)`
     left: 0;
     width: 100vw;
     margin: 0;
-    z-index: 10000;
-    display: flex;
-    justify-content: center;
+
+    .message-content {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
 
     .message-close {
       right: 5rem;
@@ -126,12 +139,6 @@ const StyledMessage = styled(motion.div)`
   color: ${props => props.color};
   background-color: ${props => props.backgroundColor};
   border: 1px solid ${props => props.borderColor};
-
-  &.toast {
-    box-shadow:
-      0 0 10px 5px rgba(${props => hexToRgba(props.color, 0.1)}),
-      0 0 15px 0 rgba(${props => hexToRgba(props.color, 0.1)});
-  }
 
   .message-icon {
     color: ${props => props.borderColor};

@@ -2,22 +2,23 @@ import React, { useContext } from 'react'
 import { ThemeContext } from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import styled from 'styled-components'
-import { hexToRgba } from '../../../utilities/colors'
 
-const LinkButton = ({ children, iconLeft, iconRight, onClick, active, round }) => {
+import { hexToRgba } from '../../utilities/colors'
+
+const LinkButton = ({ children, iconLeft, iconRight, onClick, round, ...rest }) => {
 
   /* Theme Context */
   const themeContext = useContext(ThemeContext);
 
   /* Handle adding any necessary classes */
   let classes = []
-  if (active) classes.push("active");
   if (round | themeContext.buttons.defaultRound) classes.push("round");
 
   return (
     <StyledLinkButton
       onClick={onClick}
-      className={classes.length ? classes.join(" ") : ""}>
+      className={classes.length ? classes.join(" ") : ""}
+      {...rest}>
       {iconLeft && <FontAwesomeIcon icon={iconLeft} />}
       <span>{children}</span>
       {iconRight && <FontAwesomeIcon icon={iconRight} />}

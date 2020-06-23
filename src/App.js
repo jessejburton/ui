@@ -1,16 +1,20 @@
 import React, { useState } from 'react'
-import Layout from './layout/Layout'
 import { Switch, Route, BrowserRouter as Router } from 'react-router-dom'
-import Home from './pages/Home'
-import Colors from './pages/Colors'
-import Buttons from './pages/Buttons'
-import Inputs from './pages/Inputs'
-import Messages from './pages/Messages'
-import PageNotFound from './pages/PageNotFound'
 import { ThemeProvider } from 'styled-components'
-import { defaultTheme } from '../src/components/themes/default'
-import { darkTheme } from '../src/components/themes/dark'
 import styled from 'styled-components'
+
+import {
+  Home,
+  Colors,
+  Buttons,
+  Inputs,
+  Messages,
+  Data,
+  PageNotFound
+} from './pages'
+import { Layout } from '../src/layout'
+import { defaultTheme } from '../src/themes/default'
+import { darkTheme } from '../src/themes/dark'
 
 function App() {
 
@@ -27,6 +31,7 @@ function App() {
               <Route path="/buttons" component={Buttons} />
               <Route path="/inputs" component={Inputs} />
               <Route path="/messages" component={Messages} />
+              <Route path="/data" component={Data} />
               <Route component={PageNotFound} />
             </Switch>
           </Layout>
@@ -40,6 +45,7 @@ function App() {
 export default App;
 
 const StyledAppWrapper = styled.div`
+  min-height: 100vh;
   background-color: ${props => props.theme.colors.backgroundColor};
   color: ${props => props.theme.colors.fontColor};
 `

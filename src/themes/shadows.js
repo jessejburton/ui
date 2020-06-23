@@ -1,5 +1,5 @@
 import { grey } from '../themes/colors'
-import { hexToRgba } from '../../utilities/colors'
+import { hexToRgba } from '../utilities/colors'
 
 export const cardShadow = `0 0 2px 0 rgba(${hexToRgba(grey[4], 0.25)}), 2px 2px 5px 0 rgba(${hexToRgba(grey[4], 0.25)})`;
 

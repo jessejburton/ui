@@ -1,7 +1,8 @@
 import React from 'react'
+
 import { Heading, MediumSpace } from '../styles/container.styles'
 import { PageWrapper } from '../styles/page.styles'
-import { Message } from '../components/ui/Message'
+import { Message } from '../ui'
 
 const Messages = () => {
   return (

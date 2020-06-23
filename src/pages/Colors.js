@@ -1,10 +1,10 @@
 import React, { useState } from 'react'
-import ColorCard from '../components/ui/ColorCard'
-import { colors, black, white } from '../components/themes/colors'
+import styled from 'styled-components'
+
+import { colors, black, white } from '../themes/colors'
 import { MediumSpace, Heading } from '../styles/container.styles'
 import { PageWrapper } from '../styles/page.styles'
-import LinkButton from '../components/ui/LinkButton/LinkButton'
-import styled from 'styled-components'
+import { LinkButton, ColorCard } from '../ui'
 
 const Colors = () => {
 

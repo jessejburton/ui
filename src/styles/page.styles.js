@@ -9,7 +9,14 @@ export const PageWrapper = styled.div`
   }
 
   h2 {
-    font-size: 2rem;
+    font-size: 2.4rem;
     font-weight: 600;
+  }
+
+  h3 {
+    font-size: 2rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 300;
   }
 `

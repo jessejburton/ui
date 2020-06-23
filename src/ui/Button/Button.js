@@ -2,7 +2,8 @@ import React, { useContext } from 'react'
 import { ThemeContext } from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import styled from 'styled-components'
-import { hexToRgba } from '../../../utilities/colors'
+
+import { hexToRgba } from '../../utilities/colors'
 
 const Button = ({
   children,
@@ -13,7 +14,9 @@ const Button = ({
   onClick,
   small,
   large,
-  secondary
+  secondary,
+  iconHover,
+  ...rest
 }) => {
 
   /* Theme Context */
@@ -25,10 +28,15 @@ const Button = ({
   if (large) classes.push("large");
   if (secondary) classes.push("secondary");
   if (inverted) classes.push("inverted");
+  if (iconHover) classes.push("icon-hover");
   if (round | themeContext.buttons.defaultRound) classes.push("round");
 
   return (
-    <StyledButton onClick={onClick} className={classes.length ? classes.join(" ") : ""}>
+    <StyledButton
+      onClick={onClick}
+      className={classes.length ? classes.join(" ") : ""}
+      {...rest}
+    >
       {iconLeft && <FontAwesomeIcon icon={iconLeft} />}
       <span>{children}</span>
       {iconRight && <FontAwesomeIcon icon={iconRight} />}
@@ -64,6 +72,33 @@ const StyledButton = styled.button`
   span+svg,
   svg+span {
     margin-left: 1rem;
+  }
+
+  &.icon-hover {
+    svg {
+      opacity: 0;
+      width: 0;
+      pointer-events: none;
+      transition: width .3s ease, opacity .3s ease;
+    }
+
+    span+svg,
+    svg+span {
+      margin-left: 0;
+    }
+
+    &:hover {
+      span+svg,
+      svg+span {
+        margin-left: 1rem;
+      }
+
+      svg {
+        opacity: 1;
+        width: 1em;
+      }
+    }
+
   }
 
   /* Give space if more than one button are in a row */

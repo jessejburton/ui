@@ -1,11 +1,8 @@
 import React from 'react'
 import { PageWrapper } from '../styles/page.styles'
 import { Heading, SmallSpace, MediumSpace } from '../styles/container.styles'
-import { Button } from '../components/ui/Button'
-import { LinkButton } from '../components/ui/LinkButton'
-import { ButtonGroup } from '../components/ui/ButtonGroup'
-import { ConfirmButton } from '../components/ui/ConfirmButton'
-import { faCalendarCheck } from '@fortawesome/free-solid-svg-icons'
+import { Button, LinkButton, ButtonGroup, ConfirmButton } from '../ui'
+import { faCalendarCheck, faCaretRight, faCaretLeft } from '@fortawesome/free-solid-svg-icons'
 
 const Buttons = () => {
   return (
@@ -58,7 +55,7 @@ const Buttons = () => {
           <Button inverted>Button</Button>
           <Button iconRight={faCalendarCheck}> With Icon</Button>
           <Button inverted>Another Button</Button>
-          <Button inverted iconLeft={faCalendarCheck}>Icon Left</Button>
+          <Button iconHover inverted iconLeft={faCalendarCheck}>Icon Left</Button>
         </ButtonGroup>
       </MediumSpace>
 
@@ -68,9 +65,9 @@ const Buttons = () => {
         </Heading>
         <ButtonGroup round>
           <Button inverted>Button</Button>
-          <Button iconRight={faCalendarCheck}> With Icon</Button>
+          <Button iconHover iconRight={faCaretRight}> With Icon</Button>
           <Button inverted>Another Button</Button>
-          <Button iconLeft={faCalendarCheck}>Icon Left</Button>
+          <Button iconHover iconLeft={faCaretLeft}>Icon Left</Button>
         </ButtonGroup>
       </MediumSpace>
 
