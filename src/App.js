@@ -10,6 +10,8 @@ import {
   Inputs,
   Messages,
   Data,
+  Other,
+  Panels,
   PageNotFound
 } from './pages'
 import { Layout } from '../src/layout'
@@ -32,6 +34,8 @@ function App() {
               <Route path="/inputs" component={Inputs} />
               <Route path="/messages" component={Messages} />
               <Route path="/data" component={Data} />
+              <Route path="/other" component={Other} />
+              <Route path="/panels" component={Panels} />
               <Route component={PageNotFound} />
             </Switch>
           </Layout>

@@ -4,10 +4,6 @@ import NavButton from '../ui/NavButton/NavButton'
 
 const links = [
   {
-    href: "/colors",
-    text: "Colors"
-  },
-  {
     href: "/inputs",
     text: "Inputs"
   },
@@ -26,6 +22,10 @@ const links = [
   {
     href: "/data",
     text: "Data"
+  },
+  {
+    href: "/other",
+    text: "Other"
   },
 ]
 

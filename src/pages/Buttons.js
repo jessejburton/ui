@@ -1,7 +1,8 @@
 import React from 'react'
 import { PageWrapper } from '../styles/page.styles'
 import { Heading, SmallSpace, MediumSpace } from '../styles/container.styles'
-import { Button, LinkButton, ButtonGroup, ConfirmButton } from '../ui'
+import { LinkButton, ButtonGroup, ConfirmButton } from '../ui'
+import { Button } from '../uicss'
 import { faCalendarCheck, faCaretRight, faCaretLeft } from '@fortawesome/free-solid-svg-icons'
 
 const Buttons = () => {

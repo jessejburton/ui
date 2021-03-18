@@ -27,7 +27,7 @@ export const LargeSpace = styled.div`
 `
 
 export const ContentWrapper = styled.div`
-  max-width: 1200px;
+  max-width: 1600px;
   margin: 0 auto;
-  padding: 3rem;
+  padding: 0 5rem;
 `

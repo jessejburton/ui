@@ -11,7 +11,7 @@ export const defaultTheme = {
     focus: "#90CDF4"
   },
   sizes: {
-    maxContentWidth: "1200px",
+    maxContentWidth: "1600px",
   },
   buttons: {
     buttonTextColor: "#FFFFFF",
