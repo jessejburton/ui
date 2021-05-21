@@ -31,6 +31,8 @@ const Button = ({
   if (iconHover) classes.push("icon-hover");
   if (round | themeContext.buttons.defaultRound) classes.push("round");
 
+  console.log(classes.join(" "))
+
   return (
     <StyledButton
       onClick={onClick}
